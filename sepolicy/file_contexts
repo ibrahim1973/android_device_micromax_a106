@@ -105,7 +105,6 @@
 /data/nvram(/.*)? u:object_r:nvram_data_file:s0
 /data/agps_supl(/.*)?    u:object_r:agpsd_data_file:s0
 /sys/class/gpsdrv/gps(/.*)?   u:object_r:sysfs_gpsdrv:s0
-/data/misc/gps(/.*)?   u:object_r:gps_data_file:s0
 /data/core(/.*)?         u:object_r:aee_core_data_file:s0
 /data/aee_exp(/.*)?      u:object_r:aee_exp_data_file:s0
 /data/dumpsys(/.*)?      u:object_r:aee_dumpsys_data_file:s0
