@@ -92,15 +92,8 @@ on late-init
 
 # mount different fs start
 on fs
-    write /proc/bootprof "INIT:eMMC:Mount_All_START"
     mount_all /fstab.sprout
-    write /proc/bootprof "INIT:eMMC:Mount_All_END"
-
-    #for SD card with partition(s), always mount the 1st
-    mount vfat /dev/block/mmcblk1p1 /storage/sdcard0
-    #for SD card without any partition.
-    mount vfat /dev/block/mmcblk1 /storage/sdcard0
-
+ 
 # mount different fs end
 on post-fs
     # once everything is setup, no need to modify /
