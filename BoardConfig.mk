@@ -1,6 +1,8 @@
 LOCAL_PATH := device/micromax/a106
 
+# Board
 TARGET_BOARD_PLATFORM := mt6582
+MTK_BOARD_PLATFORMS := mt6582
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 ARCH_ARM_HAVE_VFP := true
@@ -29,19 +31,16 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # kernel stuff
-BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/tools/bootimg.mk
+#BOARD_CUSTOM_BOOTIMG_MK := device/micromax/a106/tools/bootimg.mk
 MTK_PLATFORM := mt6582
 MTK_PROJECT := a106
-TARGET_KERNEL_SOURCE := kernel/micromax/a106
-TARGET_KERNEL_CONFIG := a106_defconfig
-BOARD_KERNEL_CMDLINE :=
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-BOARD_KERNEL_IMAGE_NAME := zImage
-BOARD_KERNEL_BASE := 0x10000000
+#TARGET_KERNEL_SOURCE := kernel/micromax/a106/
+#TARGET_KERNEL_CONFIG := a106_defconfig
+#BOARD_KERNEL_CMDLINE :=
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100
+TARGET_PREBUILT_KERNEL := device/micromax/a106/kernel
+BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
-KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
-#TARGET_PREBUILT_KERNEL := device/micromax/a106/kernel
 
 # Hack for build
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
@@ -116,11 +115,11 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 # Dual SIM
 SIM_COUNT := 2
 
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
+#BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
 
 TARGET_USERIMAGES_USE_EXT4:=true
 USE_CAMERA_STUB := true
 
 # SELinux
-# BOARD_SEPOLICY_DIRS += \
-#    device/micromax/a106/sepolicy
+BOARD_SEPOLICY_DIRS += \
+    device/micromax/a106/sepolicy
