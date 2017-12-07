@@ -121,5 +121,5 @@ TARGET_USERIMAGES_USE_EXT4:=true
 USE_CAMERA_STUB := true
 
 # SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/micromax/a106/sepolicy
+#BOARD_SEPOLICY_DIRS += \
+#    device/micromax/a106/sepolicy
