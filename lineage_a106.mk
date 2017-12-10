@@ -93,11 +93,13 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio.r_submix.default \
     libaudio-resampler \
-    tinymix
-
-# Doze
+    tinymix \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl
+    
+# Lights
 PRODUCT_PACKAGES += \
-    DozeServices
+    android.hardware.light@2.0-impl
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -108,10 +110,10 @@ PRODUCT_PACKAGES += \
 	messaging
 
 # FM Radio
-PRODUCT_PACKAGES += \
-    FMRadio \
-    FMRadioGoogle \
-    FmRadioTrampoline2
+#PRODUCT_PACKAGES += \
+#    FMRadio \
+#    FMRadioGoogle \
+#    FmRadioTrampoline2
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -123,8 +125,27 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
+    wificond \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    android.hardware.wifi@1.0-service
+
+# Graphics
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.memtrack@1.0-impl
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl \
+
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
 
 PRODUCT_PACKAGES += \
     libsprout \
@@ -174,15 +195,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
 	persist.sys.usb.config = mtp,adb \
 	persist.service.adb.enable=1 \
         persist.service.debuggable=1 \
-	ro.zygote=zygote32 \
 	camera.disable_zsl_mode=1 \
 	dalvik.vm.dex2oat-Xms=64m \
 	dalvik.vm.dex2oat-Xmx=512m \
 	dalvik.vm.image-dex2oat-Xms=64m \
 	dalvik.vm.image-dex2oat-Xmx=64m \
 	ro.dalvik.vm.native.bridge=0 \
-	ro.hardware=sprout \
-	ro.telephony.ril_class=MediaTekRIL
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     pm.dexopt.first-boot=verify-at-runtime \
@@ -200,10 +218,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-swap=false
 
 USE_CUSTOM_AUDIO_POLICY := 1
-
-#KERNEL ADIUTOR
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/priv-app/KernelAdiutor/KernelAdiutor.apk:system/priv-app/KernelAdiutor/KernelAdiutor.apk
 
 # FASTER BOOTANIMATION
 TARGET_BOOTANIMATION_HALF_RES := true

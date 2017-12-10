@@ -1,6 +1,8 @@
 LOCAL_PATH := device/micromax/a106
 
+# Board
 TARGET_BOARD_PLATFORM := mt6582
+MTK_BOARD_PLATFORMS := mt6582
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 ARCH_ARM_HAVE_VFP := true
@@ -34,7 +36,7 @@ MTK_PLATFORM := mt6582
 MTK_PROJECT := a106
 TARGET_KERNEL_SOURCE := kernel/micromax/a106
 TARGET_KERNEL_CONFIG := a106_defconfig
-BOARD_KERNEL_CMDLINE :=
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -121,16 +123,15 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # Dual SIM
 SIM_COUNT := 2
-TARGET_GLOBAL_CFLAGS += -DANDROID_MULTI_SIM
-TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
 
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
 
-TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_USERIMAGES_USE_EXT4:=true
 USE_CAMERA_STUB := true
 
 # SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/micromax/a106/sepolicy
+#BOARD_SEPOLICY_DIRS += \
+#    device/micromax/a106/sepolicy
+
+#HIDL
+DEVICE_MANIFEST_FILE := device/micromax/a106/manifest.xml
