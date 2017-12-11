@@ -15,9 +15,6 @@ TARGET_ARCH_VARIANT_CPU := cortex-a7
 TARGET_CPU_VARIANT:= cortex-a7
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
-# NINJA
-USE_NINJA := true
-
 # Block based ota
 BLOCK_BASED_OTA := false
 
@@ -37,11 +34,10 @@ MTK_PROJECT := a106
 TARGET_KERNEL_SOURCE := kernel/micromax/a106
 TARGET_KERNEL_CONFIG := a106_defconfig
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
+BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
-KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 #TARGET_PREBUILT_KERNEL := device/micromax/a106/kernel
 
 # Hack for build
