@@ -42,6 +42,12 @@ TARGET_PREBUILT_KERNEL := device/micromax/a106/kernel
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 
+
+# Deodex
+WITH_DEXPREOPT := false
+DISABLE_DEXPREOPT := true
+
+
 # Hack for build
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 
@@ -121,5 +127,5 @@ TARGET_USERIMAGES_USE_EXT4:=true
 USE_CAMERA_STUB := true
 
 # SELinux
-#BOARD_SEPOLICY_DIRS += \
-#    device/micromax/a106/sepolicy
+BOARD_SEPOLICY_DIRS += \
+    device/micromax/a106/sepolicy

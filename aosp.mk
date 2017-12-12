@@ -165,9 +165,9 @@ PRODUCT_PACKAGES += \
     e2fsck \
 
 # Power
-PRODUCT_PACKAGES += \
-    power.default \
-    power.mt6582
+#PRODUCT_PACKAGES += \
+ #   power.default \
+  #  power.mt6582
 
 # HIDL
 PRODUCT_COPY_FILES += \

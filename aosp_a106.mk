@@ -13,7 +13,7 @@ LOCAL_PATH := device/micromax/a106
 CM_BUILD := a106
 
 # Inherit some common AOSP-OMS stuff.
-$(call inherit-product, vendor/aosp/common.mk)
+#$(call inherit-product, vendor/aosp/common.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_FINGERPRINT=7.1.2/MRA58M/2280749:user/release-keys PRIVATE_BUILD_DESC="a106-user 7.1.2 MRA58M 2280749 release-keys"
 
