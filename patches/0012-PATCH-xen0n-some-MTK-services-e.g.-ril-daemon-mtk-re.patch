@@ -28,15 +28,15 @@ diff --git a/init/init.h b/init/init.h
 index 345d442..f93d0c5 100644
 --- a/init/init.h
 +++ b/init/init.h
-@@ -24,7 +24,7 @@ class Service;
+@@ -19,7 +19,7 @@
  
- #define COMMAND_RETRY_TIMEOUT 5
+ #include <string>
  
 -extern const char *ENV[32];
 +extern const char *ENV[64];
- extern bool waiting_for_exec;
- extern int have_console;
- extern std::string console_name;
+ extern std::string default_console;
+ extern struct selabel_handle *sehandle;
+ extern struct selabel_handle *sehandle_prop;
 -- 
 2.7.4
 
