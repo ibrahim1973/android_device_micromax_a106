@@ -117,9 +117,9 @@ PRODUCT_PACKAGES += \
 #    FmRadioTrampoline2
 
 # GPS
-PRODUCT_PACKAGES += \
-    gps.mt6582\
-    YGPS
+#PRODUCT_PACKAGES += \
+  #  gps.mt6582\
+  #  YGPS
 
 # Wifi
  PRODUCT_PACKAGES += \
