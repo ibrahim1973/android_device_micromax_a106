@@ -19,7 +19,7 @@ LOCAL_SRC_FILES := \
     bionic.cpp \
     icu53.c \
     icu55.c \
-    ril.cpp \
+    #ril.cpp \
     xlog.c \
     xlog_hack.cpp \
     mtk_hack.cpp
